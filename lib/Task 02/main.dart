@@ -79,6 +79,17 @@ class _UserRegistrationFormState extends State<UserRegistrationForm> {
     }
   }
 
+  void _clearForm() {
+    _nameController.clear();
+    _emailController.clear();
+    _passwordController.clear();
+    _confirmPasswordController.clear();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Form Cleared!')),
+    );
+    setState(() {}); // Refresh UI
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -118,9 +129,21 @@ class _UserRegistrationFormState extends State<UserRegistrationForm> {
               ),
               SizedBox(height: 20),
               Center(
-                child: ElevatedButton(
-                  onPressed: _submitForm,
-                  child: Text('Submit'),
+                child: Column(
+                  children: [
+                    ElevatedButton(
+                      onPressed: _submitForm,
+                      child: Text('Submit'),
+                    ),
+                    SizedBox(height: 10),
+                    GestureDetector(
+                      onLongPress: _clearForm,
+                      child: TextButton(
+                        onPressed: () {}, // No action on normal press
+                        child: Text('Clear Form'),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
