@@ -124,4 +124,17 @@ class _UserRegistrationFormState extends State<UserRegistrationForm> {
       ),
     );
   }
+
+  void _finalSubmit() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Registration Successful!')),
+    );
+    print('Name: ${_nameController.text}');
+    print('Email: ${_emailController.text}');
+    if (_profileImage != null) {
+      print('Profile Picture Selected: ${_profileImage!.path}');
+    } else {
+      print('No Profile Picture Selected');
+    }
+  }
 }
