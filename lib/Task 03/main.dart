@@ -65,4 +65,11 @@ class _UserRegistrationFormState extends State<UserRegistrationForm> {
     }
     return null;
   }
+
+  String? _validatePassword(String? value) {
+    if (value == null || value.length < 6) {
+      return 'Password must be at least 6 characters';
+    }
+    return null;
+  }
 }
