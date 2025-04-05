@@ -137,4 +137,95 @@ class _UserRegistrationFormState extends State<UserRegistrationForm> {
       print('No Profile Picture Selected');
     }
   }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('User Registration')),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(16.0),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: GestureDetector(
+                  onTap: _pickImage,
+                  child: CircleAvatar(
+                    radius: 50,
+                    backgroundColor: Colors.grey[300],
+                    backgroundImage: _profileImage != null
+                        ? FileImage(_profileImage!)
+                        : null,
+                    child: _profileImage == null
+                        ? Icon(Icons.camera_alt, size: 40, color: Colors.white)
+                        : null,
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
+              TextFormField(
+                controller: _nameController,
+                decoration: InputDecoration(labelText: 'Name'),
+                validator: _validateName,
+              ),
+              SizedBox(height: 10),
+              TextFormField(
+                controller: _emailController,
+                decoration: InputDecoration(labelText: 'Email'),
+                keyboardType: TextInputType.emailAddress,
+                validator: _validateEmail,
+              ),
+              SizedBox(height: 10),
+              TextFormField(
+                controller: _passwordController,
+                decoration: InputDecoration(labelText: 'Password'),
+                obscureText: true,
+                validator: _validatePassword,
+              ),
+              SizedBox(height: 10),
+              TextFormField(
+                controller: _confirmPasswordController,
+                decoration: InputDecoration(labelText: 'Confirm Password'),
+                obscureText: true,
+                validator: _validateConfirmPassword,
+              ),
+              SizedBox(height: 20),
+              Center(
+                child: Column(
+                  children: [
+                    Material(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(8),
+                      child: InkWell(
+                        onTap: _submitForm,
+                        borderRadius: BorderRadius.circular(8),
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                              vertical: 12, horizontal: 20),
+                          child: Text(
+                            'Submit',
+                            style: TextStyle(color: Colors.white, fontSize: 16),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    GestureDetector(
+                      onLongPress: _clearForm,
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Text('Clear Form'),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
