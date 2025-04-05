@@ -20,3 +20,10 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+class UserRegistrationForm extends StatefulWidget {
+  const UserRegistrationForm({super.key});
+
+  @override
+  _UserRegistrationFormState createState() => _UserRegistrationFormState();
+}
