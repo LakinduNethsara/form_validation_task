@@ -101,4 +101,27 @@ class _UserRegistrationFormState extends State<UserRegistrationForm> {
       _showConfirmationDialog();
     }
   }
+
+  void _showConfirmationDialog() {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Confirm Submission'),
+        content: Text('Are you sure you want to submit the form?'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text('Cancel'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context);
+              _finalSubmit();
+            },
+            child: Text('Yes, Submit'),
+          ),
+        ],
+      ),
+    );
+  }
 }
