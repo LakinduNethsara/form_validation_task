@@ -95,4 +95,10 @@ class _UserRegistrationFormState extends State<UserRegistrationForm> {
       SnackBar(content: Text('Form Cleared!')),
     );
   }
+
+  void _submitForm() {
+    if (_formKey.currentState!.validate()) {
+      _showConfirmationDialog();
+    }
+  }
 }
