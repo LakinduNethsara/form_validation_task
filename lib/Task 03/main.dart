@@ -27,3 +27,13 @@ class UserRegistrationForm extends StatefulWidget {
   @override
   _UserRegistrationFormState createState() => _UserRegistrationFormState();
 }
+
+class _UserRegistrationFormState extends State<UserRegistrationForm> {
+  final _formKey = GlobalKey<FormState>();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
+  File? _profileImage;
+}
