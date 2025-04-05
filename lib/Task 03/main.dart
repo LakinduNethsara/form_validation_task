@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'User Registration Form',
+      debugShowCheckedModeBanner: false, // Removes the debug banner
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -129,13 +130,7 @@ class _UserRegistrationFormState extends State<UserRegistrationForm> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('Registration Successful!')),
     );
-    print('Name: ${_nameController.text}');
-    print('Email: ${_emailController.text}');
-    if (_profileImage != null) {
-      print('Profile Picture Selected: ${_profileImage!.path}');
-    } else {
-      print('No Profile Picture Selected');
-    }
+    // Removed debug print statements
   }
 
   @override
