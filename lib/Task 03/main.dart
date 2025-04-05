@@ -82,4 +82,17 @@ class _UserRegistrationFormState extends State<UserRegistrationForm> {
     }
     return null;
   }
+
+  void _clearForm() {
+    _nameController.clear();
+    _emailController.clear();
+    _passwordController.clear();
+    _confirmPasswordController.clear();
+    setState(() {
+      _profileImage = null;
+    });
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Form Cleared!')),
+    );
+  }
 }
