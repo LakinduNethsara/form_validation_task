@@ -47,4 +47,11 @@ class _UserRegistrationFormState extends State<UserRegistrationForm> {
       });
     }
   }
+
+  String? _validateName(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return 'Name is required';
+    }
+    return null;
+  }
 }
