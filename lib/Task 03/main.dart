@@ -5,3 +5,18 @@ import 'package:image_picker/image_picker.dart';
 void main() {
   runApp(MyApp());
 }
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'User Registration Form',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: UserRegistrationForm(),
+    );
+  }
+}
