@@ -131,9 +131,21 @@ class _UserRegistrationFormState extends State<UserRegistrationForm> {
               Center(
                 child: Column(
                   children: [
-                    ElevatedButton(
-                      onPressed: _submitForm,
-                      child: Text('Submit'),
+                    Material(
+                      color: Colors.blue, // Background color
+                      borderRadius: BorderRadius.circular(8),
+                      child: InkWell(
+                        onTap: _submitForm,
+                        borderRadius: BorderRadius.circular(8),
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                              vertical: 12, horizontal: 20),
+                          child: Text(
+                            'Submit',
+                            style: TextStyle(color: Colors.white, fontSize: 16),
+                          ),
+                        ),
+                      ),
                     ),
                     SizedBox(height: 10),
                     GestureDetector(
