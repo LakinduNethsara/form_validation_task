@@ -72,4 +72,14 @@ class _UserRegistrationFormState extends State<UserRegistrationForm> {
     }
     return null;
   }
+
+  String? _validateConfirmPassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Confirm Password is required';
+    }
+    if (value != _passwordController.text) {
+      return 'Passwords do not match';
+    }
+    return null;
+  }
 }
