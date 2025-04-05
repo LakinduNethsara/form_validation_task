@@ -36,4 +36,15 @@ class _UserRegistrationFormState extends State<UserRegistrationForm> {
   final TextEditingController _confirmPasswordController =
       TextEditingController();
   File? _profileImage;
+
+  Future<void> _pickImage() async {
+    final pickedFile =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
+
+    if (pickedFile != null) {
+      setState(() {
+        _profileImage = File(pickedFile.path);
+      });
+    }
+  }
 }
